@@ -73,8 +73,12 @@ public class Task1 {
             }
             else break;
         }while(c>0);
-        System.out.println("Welcome "+name);
-        ba.Setvalues(name + "..", 200000);
-        ba.getvalues();
+        if(c!=0) {
+            System.out.println("Welcome " + name);
+            ba.Setvalues(name + "..", 200000);
+            ba.getvalues();
+        }
+        else System.out.println("Your account locked");
+
     }
 }
