@@ -14,13 +14,14 @@ class BankManagementSystem {
         System.out.println("CurrentBalance:" + CurrentBalance);
         int enterorexit;
         do{
-            System.out.println("Press 1 for continue further process!!"+" Or press 4 to Exit!!");
+            System.out.println("Press 1 for continue further process!!"+" Or press 5 to Exit!!");
             enterorexit=sc.nextInt();
                     if (enterorexit == 1) {
                         System.out.println("Press 2 for Withdraw");
                         System.out.println("Press 3 for Deposit");
-                        int t = sc.nextInt();
-                        if (t == 2) {
+                        System.out.println("press 4 for CheckBalance");
+                        enterorexit = sc.nextInt();
+                       if (enterorexit == 2) {
                             System.out.println("Enter your Withdrawal Amount:");
                             enteramouunt = sc.nextInt();
                             try {
@@ -37,18 +38,22 @@ class BankManagementSystem {
                             } catch (InsufficientFundsException e) {
                                 System.out.println("Error:" + e.getMessage());
                             }
-                        } else if (t == 3) {
+                        } else if (enterorexit == 3) {
                             System.out.println("Enter your amount to Deposit:");
                             int de = sc.nextInt();
                             CurrentBalance = CurrentBalance + de;
-                            System.out.println("Amount " + de + " Cretied!!");
+                            System.out.println("Amount " + de + " Credited!!");
                             System.out.println("FinalBalance:" + " " + CurrentBalance);
                         }
-                    } else {
+                       else if(enterorexit==4)
+                           System.out.println("Your account Balance: "+CurrentBalance);
+                    }
+                    else if(enterorexit==5) break;
+                    else {
                         System.out.println("Enter a valid number!!");
                         System.out.println();
                     }
-                } while (enterorexit != 4);
+                } while (enterorexit <=4);
             }
     }
 class InsufficientFundsException extends Exception{
